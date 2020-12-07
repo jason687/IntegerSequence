@@ -15,6 +15,7 @@ public class Range implements IntegerSequence {
     }
     this.start = start;
     this.end = end;
+    current = this.start;
   }
 
   public int length () {
@@ -22,15 +23,18 @@ public class Range implements IntegerSequence {
   }
 
   public boolean hasNext () {
-    return !(current + 1 == length());
+    return (current - start < length ());
   }
 
   public int next () {
-    current += 1;
-    return (current - 1);
+    if (hasNext()) {
+      current += 1;
+      return (current - 1);
+    }
+    throw new NoSuchElementException ("no");
   }
 
   public void reset () {
-    current = 0;
+    current = start;
   }
 }
