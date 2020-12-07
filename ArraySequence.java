@@ -31,12 +31,14 @@ public class ArraySequence implements IntegerSequence {
     currentIndex = 0;
   }
 
-  // public ArraySequence (IntegerSequence otherseq) {
-  //   counter = 0;
-  //   while (hasNext()) {
-  //     data[otherseq.currentIndex] = otherseq.next();
-  //   }
-  //   otherseq.reset();
-  // }
+  public ArraySequence (IntegerSequence otherseq) {
+    data = new int [otherseq.length()];
+    int counter = 0;
+    while (otherseq.hasNext()) {
+      data[counter] = otherseq.next();
+      counter += 1;
+    }
+    otherseq.reset();
+  }
 
 }
