@@ -1,14 +1,8 @@
 import java.util.NoSuchElementException;
 
-interface IntegerSequence {
-  boolean hasNext();
-  int next();
-  int length();
-  void reset();
-}
-
 public class Range implements IntegerSequence {
   private int start, end, current;
+
   public Range (int start, int end) {
     if (start > end) {
       throw new IllegalArgumentException ("Start value is greater than end value!");
